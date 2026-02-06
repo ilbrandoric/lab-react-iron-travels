@@ -127,3 +127,55 @@ Things that appear once
 
 
 ** We'll stule the element in Index.css
+
+
+---
+
+## Label
+
+<div className="labels">
+          {costLabel && <span className="label">{costLabel}</span>}
+          {plan.allInclusive && (
+            <span className="label all-inclusive">All Inclusive</span>
+          )}
+        </div>
+
+
+This line: {costLabel && <span className="label">{costLabel}</span>}
+
+      “If costLabel exists (is truthy), render the <span>.
+If it doesn’t exist, render nothing.”
+
+In other words: “Render JSX only if condition is true”
+
+
+---
+
+## Delete Plans
+
+  const deletePlan = (id) => {
+    setTravelPlans(travelPlans.filter((plan) => plan.id !== id));
+  };
+
+  Keep all the trips EXCEPT the one with this ID, then update the list.
+
+For each plan:
+
+If plan.id !== id → KEEP it
+If plan.id === id → REMOVE it
+
+How .filter() works
+array.filter(condition)
+
+Goes through each item in the array
+Keeps the item if condition is true
+Removes the item if condition is false
+Returns a new array (does not change the original)
+
+
+## Is it props?
+
+How do i know an item is props or not?
+
+If a value comes into a component → it’s a prop.
+If a value is created inside a component with useState → it’s state.
